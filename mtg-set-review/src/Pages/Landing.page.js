@@ -1,5 +1,6 @@
 import React from "react";
-import { SetList } from "../Components/set.comp";
+
+import { SetList } from "../Components/set-comp/set.comp";
 
 export default class LandingPage extends React.Component {
     state = {
