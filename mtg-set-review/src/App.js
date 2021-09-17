@@ -10,7 +10,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faCheckSquare, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-import LandingPage from "./Pages/LandingPage";
+import LandingPage from "./Pages/Landing.page";
+import CardReviewPage from "./Pages/CardReview.page";
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,6 +22,7 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/review/:sessionId" component={CardReviewPage} />
         <Route path="/">
           <LandingPage/>
         </Route>
