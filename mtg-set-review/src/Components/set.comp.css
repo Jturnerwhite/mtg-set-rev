@@ -1,0 +1,55 @@
+.set-list {
+    width: 30rem;
+    height: 30rem;
+    overflow: auto;
+
+    background-color: #fffaf5;
+
+    box-shadow: 8px 8px 11px #0000007a;
+}
+
+.set {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 10px 0px;
+    border-top: 1px solid #cccccc;
+}
+
+.set, .set * {
+    user-select: none;
+}
+
+.set:first-child {
+    border-top: 0px;
+}
+
+.set .left-content {
+    display: flex;
+    align-items: center;
+}
+
+.set img {
+    height: 40px;
+    width: 40px;
+}
+.set label {
+    font-size: 20px;
+    line-height: 1em;
+
+    padding-left: 10px;
+}
+
+.set .select-set {
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    background-color: transparent;
+    outline: 0px;
+    border: 0px;
+    
+    cursor: pointer;
+    font-size: 16px;
+}
