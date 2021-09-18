@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -12,7 +11,7 @@ import { faCheckSquare, faArrowRight, faSpinner } from '@fortawesome/free-solid-
 
 import LandingPage from "./Pages/Landing.page";
 import CardReviewPage from "./Pages/CardReview.page";
-import StartPage from "./Pages/Start.page";
+import StartPage from "./Pages/SessionPages/Start.page";
 
 import './App.css';
 

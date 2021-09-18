@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useCallback } from 'react';
 import BoxLoader from '../misc/box-loader.comp';
 
 import "./set.comp.css";
@@ -8,7 +9,7 @@ function SetList(props) {
 
     if(props && props.sets && props.sets.length > 0) {
         display = props.sets.map((set, index) => {
-            return <SetDisplay key={index} set={set} />
+            return <SetDisplay key={index} set={set} clickEvent={props.callback} />
         });
     }
     else {
@@ -16,19 +17,23 @@ function SetList(props) {
     }
 
     return (
-        <div className="set-list soft-pad">
+        <div className="set-list">
             {display}
         </div>
     );
 }
 
 function SetDisplay(props) {
-    let set = props.set;
+    let { set, clickEvent } = props;
+    let onClick = useCallback(() => {
+        console.log("functional click");
+        clickEvent(set);
+    }, [clickEvent]);// eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="set">
+        <div className="set" onClick={onClick}>
             <div className="left-content">
-                <img src={set.Icon} />
+                <img src={set.Icon}/>
                 <label>{set.Name}</label>
             </div>
             <button className="select-set">
