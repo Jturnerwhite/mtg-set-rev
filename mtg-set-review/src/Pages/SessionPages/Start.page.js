@@ -69,13 +69,14 @@ export default class StartPage extends React.Component {
     render() {
         let display = <BoxLoader/>;
         if(!this.state.SelectedSet) {
+            // name "onSetSelect"
             display = <SetSelect setList={this.state.SetList} callback={this.handleSetSelect} />;
         }
         else if(this.state.SelectedPrivacy == null) {
             display = <PrivacySelect callback={this.handlePrivacySelect}/>;
         }
         else if(this.state.SelectedPrivacy != null) {
-            display = <Finalize/>
+            display = <Finalize/>;
         }
 
         return (
