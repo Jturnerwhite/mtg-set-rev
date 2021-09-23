@@ -7,7 +7,7 @@ import {
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faArrowRight, faSpinner, faRetweet } from '@fortawesome/free-solid-svg-icons'
+import { faCheckSquare, faArrowRight, faArrowLeft, faSpinner, faRetweet } from '@fortawesome/free-solid-svg-icons'
 
 import LandingPage from "./Pages/Landing.page";
 import CardReviewPage from "./Pages/CardReview.page";
@@ -17,7 +17,7 @@ import SandboxPage from "./Pages/SandboxPage";
 import './App.css';
 
 // https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react
-library.add(fab, faCheckSquare, faArrowRight, faSpinner, faRetweet);
+library.add(fab, faCheckSquare, faArrowRight, faArrowLeft, faSpinner, faRetweet);
 
 function App() {
   return (

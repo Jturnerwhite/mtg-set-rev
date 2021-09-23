@@ -1,0 +1,106 @@
+
+.mtg-card-display-container {
+    width: 30rem;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.mtg-card-display-container .focused-image-container {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.mtg-card-display-container .focused-image-container .mtg-card {
+    z-index: 1;
+}
+
+.mtg-card-display-container .background-card {
+    z-index: 0;
+    position:relative;
+    width: 100%;
+}
+.mtg-card-display-container .background-card .mtg-card {
+    position: absolute;
+    top: 70px;
+    width: 50%;
+}
+.mtg-card-display-container .background-card .mtg-card:first-child {
+    left: -30px;
+}
+.mtg-card-display-container .background-card .mtg-card:last-child {
+    right: -30px;
+}
+.mtg-card {
+    height: 468px;
+    width: 336px;
+}
+
+.mtg-card-display-container .card {
+    position: relative;
+    width: 100%;
+
+    margin-top: -80px;
+    padding: 15px;
+
+    border-radius: 20px;
+}
+
+.rating-container {
+    padding: 120px 0px 0px 0px;
+    width: 100%;
+}
+
+.rating {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.rating li {
+    display: inline-block;
+    padding: 8px 8px;
+    border: 2px solid #db7329;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rating li:hover {
+    background-color: #db7329;
+    color: white;
+}
+
+.float-control {
+    position: absolute;
+    top: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+
+    background-color: white;
+    border: 2px solid grey;
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.top-left {
+    left: 10px;
+}
+
+.top-right {
+    right: 10px;
+}
+
+.lower-middle {
+    z-index: 2;
+    left: calc(50% - 18px);
+    top: 62px;
+    
+    border: 3px solid #db7329;
+}

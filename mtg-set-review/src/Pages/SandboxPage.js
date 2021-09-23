@@ -1,12 +1,12 @@
 import React from "react";
-import CardDisplay from "../Components/card-display/card-display";
+import CardRating from "../Components/card-rating/card-rating";
 
 export default class SandboxPage extends React.Component {
     render() {
         return (
             <>
                 <div className="flex v-center h-center f-col">
-                    <CardDisplay/>
+                    <CardRating/>
                 </div>
             </>
         );
