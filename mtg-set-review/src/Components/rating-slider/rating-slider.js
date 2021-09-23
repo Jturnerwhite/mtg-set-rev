@@ -4,35 +4,67 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "./rating-slider.css";
 
 function RatingSlider(props) {
-    // let defaultVal = props.defaultVal;
-    // let rangeLow = props.rangeLow;
-    // let rangeHigh = props.rangeHigh;
+    let values = [
+        {
+            display: "0"
+        },
+        {
+            display: "0.5"
+        },
+        {
+            display: "1"
+        },
+        {
+            display: "1.5"
+        },
+        {
+            display: "2"
+        },
+        {
+            display: "2.5"
+        },
+        {
+            display: "3"
+        },
+        {
+            display: "3.5"
+        },
+        {
+            display: "4"
+        },
+        {
+            display: "4.5"
+        },
+        {
+            display: "5"
+        },
+    ];
 
     const [sliderValue, updateSliderValue] = useState(5);
+    //const [sliderOptions, updateSliderOptions] = useState(values);
+
+    function update(value) {
+        console.log("val", value);
+        values.forEach((item) => { item.selected = false; });
+        values[value].selected = false;
+        //updateSliderOptions(values);
+        updateSliderValue(value);
+    }
 
     function handleChange(event) {
-        updateSliderValue(event.target.value);
+        update(event.target.value);
     }
 
-    function valueClick(val) {
-        updateSliderValue(val);
-    }
+    let quickSelectDisplay = values.map((val, index) => {
+        let classes = (sliderValue == index) ? "selected" : "";
+        return <li key={index} className={classes} onClick={() => { update(index) }}>{val.display}</li>
+    });
 
     return (
         <div className="slider-container">
-            <input className="slider" type="range" min="0" max="10" value={sliderValue} onChange={handleChange} />
+            <input className="slider" type="range" min="0" max={values.length-1} value={sliderValue} onChange={handleChange} />
             <ul className="rating">
-                <li onClick={() => { valueClick(0) }}>0</li>
-                <li onClick={() => { valueClick(1) }}>0.5</li>
-                <li onClick={() => { valueClick(2) }}>1</li>
-                <li onClick={() => { valueClick(3) }}>1.5</li>
-                <li onClick={() => { valueClick(4) }}>2</li>
-                <li onClick={() => { valueClick(5) }}>2.5</li>
-                <li onClick={() => { valueClick(6) }}>3</li>
-                <li onClick={() => { valueClick(7) }}>3.5</li>
-                <li onClick={() => { valueClick(8) }}>4</li>
-                <li onClick={() => { valueClick(9) }}>4.5</li>
-                <li onClick={() => { valueClick(10) }}>5</li>
+                {quickSelectDisplay}
             </ul>
         </div>
     );

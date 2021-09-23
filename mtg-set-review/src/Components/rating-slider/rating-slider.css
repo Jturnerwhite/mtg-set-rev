@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     padding: 0px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .rating li {
@@ -19,13 +19,14 @@
     text-align: center;
     font-weight: bold;
 
+    border: 2px solid transparent;
     border-radius: 10px;
     cursor: pointer;
 
     font-size: 18px;
 }
 
-.rating li:nth-child(even){
+.rating li:nth-child(even) {
     font-size: 0.66em;
 }
 
@@ -33,16 +34,26 @@
     background-color: #db7329;
     color: white;
 }
+.rating li.selected {
+    border: 2px solid #db7329;
+}
 
 .slider {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
-    width: 100%; /* Specific width is required for Firefox. */
     background: transparent; /* Otherwise white in Chrome */
     font-size: 18px;
 
+    padding: 0px 2px;
+    width: calc(100% - 4px);
+
+
+    --box-shadow: 0px 0px 8px #000;
     --slide-background: #db7329;
-    --thumb-width: 1.5em;
+    --thumb-width: 2em;
     --thumb-height: 2em;
+    --border: 0px;
+    --border-radius: 50%;
+    --track-border-radius: 10px;
 }
 
 .slider::-webkit-slider-thumb {
@@ -62,36 +73,38 @@
 }
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    border: 1px solid #000000;
     width: var(--thumb-width);
     height: var(--thumb-height);
-    margin-top: calc(((-2em)/4) - 2px);
-    border-radius: 3px;
+    margin-top: calc(((-2em)/4));
+
+    border: var(--border);
+    border-radius: var(--border-radius);
     background: #ffffff;
     cursor: pointer;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+    box-shadow: var(--box-shadow);
 }
 
 /* All the same stuff for Firefox */
 .slider::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
+    box-shadow: var(--box-shadow);
     width: var(--thumb-width);
     height: var(--thumb-height);
     margin-top: calc(((-2em)/4) - 2px);
-    border-radius: 3px;
+    border: var(--border);
+    border-radius: var(--border-radius);
     background: #ffffff;
     cursor: pointer;
 }
 
 /* All the same stuff for IE */
 .slider::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
+    box-shadow: var(--box-shadow);
     width: var(--thumb-width);
     height: var(--thumb-height);
     margin-top: calc(((-2em)/4) - 2px);
-    border-radius: 3px;
+    
+    border: var(--border);
+    border-radius: var(--border-radius);
     background: #ffffff;
     cursor: pointer;
 }
@@ -101,6 +114,7 @@
     height: 1em;
     cursor: pointer;
     background: var(--slide-background);
+    border-radius: var(--track-border-radius);
 }
 
 .slider:focus::-webkit-slider-runnable-track {
