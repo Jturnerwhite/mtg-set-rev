@@ -1,43 +1,66 @@
 
-.mtg-card-display-container {
+.card-rating-container {
     width: 30rem;
     display: flex;
     align-items: center;
     flex-flow: column;
 }
 
-.mtg-card-display-container .focused-image-container {
+.image-container {
+    width: 100%;
+}
+
+.card-rating-container .focused-card {
     display: flex;
     align-items: center;
     flex-flow: column;
 }
 
-.mtg-card-display-container .focused-image-container .mtg-card {
+.card-rating-container .focused-card .mtg-card {
     z-index: 1;
 }
 
-.mtg-card-display-container .background-card {
+.card-rating-container .background-card {
     z-index: 0;
     position:relative;
     width: 100%;
 }
-.mtg-card-display-container .background-card .mtg-card {
+.card-rating-container .background-card .mtg-card-container {
     position: absolute;
-    top: 70px;
-    width: 50%;
+    top: 100px;
+    width: 235px;
 }
-.mtg-card-display-container .background-card .mtg-card:first-child {
-    left: -30px;
+.card-rating-container .background-card .mtg-card-container:first-child {
+    left: -50px;
 }
-.mtg-card-display-container .background-card .mtg-card:last-child {
-    right: -30px;
+.card-rating-container .background-card .mtg-card-container:first-child::after {
+    background: linear-gradient(90deg, rgba(219,115,41,1) 0%, rgba(219,115,41,0) 100%);
 }
-.mtg-card {
+.card-rating-container .background-card .mtg-card-container:first-child::after,
+.card-rating-container .background-card .mtg-card-container:last-child::after {
+    content: '';
+    position:absolute;
+    top: 0px;
+    left: 0px;
+
+    display:block;
+    width: 100%;
+    height: 100%;
+}
+.card-rating-container .background-card .mtg-card-container:last-child {
+    right: -50px;
+}
+.card-rating-container .background-card .mtg-card-container:last-child::after {
+    background: linear-gradient(90deg, rgba(219,115,41,0) 0%, rgba(219,115,41,1) 100%);
+}
+
+
+.mtg-card-container {
     height: 468px;
     width: 336px;
 }
 
-.mtg-card-display-container .card {
+.card-rating-container .card {
     position: relative;
     width: 100%;
 
@@ -50,26 +73,6 @@
 .rating-container {
     padding: 120px 0px 0px 0px;
     width: 100%;
-}
-
-.rating {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px;
-}
-
-.rating li {
-    display: inline-block;
-    padding: 8px 8px;
-    border: 2px solid #db7329;
-    border-radius: 10px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.rating li:hover {
-    background-color: #db7329;
-    color: white;
 }
 
 .float-control {

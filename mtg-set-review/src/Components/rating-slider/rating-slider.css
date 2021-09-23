@@ -1,0 +1,29 @@
+.slider-container {
+    width: 100%;
+}
+.slider {
+    width: 100%;
+}
+.rating {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.rating li {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-weight: bold;
+
+    border: 2px solid #db7329;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.rating li:hover {
+    background-color: #db7329;
+    color: white;
+}
