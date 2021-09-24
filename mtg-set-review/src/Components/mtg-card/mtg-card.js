@@ -13,6 +13,7 @@ function MtgCard(props) {
     let toggleButton = "";
     let topLevelClasses = "mtg-card";
 
+    console.log(props.card);
     if(props.card.layout === "transform") {
         frontUrl = props.card.card_faces[0].image_uris.normal;
         

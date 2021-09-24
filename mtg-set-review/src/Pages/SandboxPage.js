@@ -26,6 +26,7 @@ let testData = [
         "object": "card",
         "id": "54d4e7c3-294d-4900-8b70-faafda17cc33",
         "name": "Ambitious Farmhand // Seasoned Cathar",
+        "layout": "transform",
         "card_faces": [
             {
                 "name": "Ambitious Farmhand",
@@ -45,6 +46,7 @@ let testData = [
         "object": "card",
         "id": "6109b54e-56c5-4014-9f6d-d5f7a0fd725d",
         "name": "Beloved Beggar // Generous Soul",
+        "layout": "transform",
         "card_faces": [
             {
                 "name": "Beloved Beggar",
@@ -64,6 +66,7 @@ let testData = [
     {
         "id": "4adee830-62fd-4ab4-b1c6-a8bbe15331d1",
         "name": "Bereaved Survivor // Dauntless Avenger",
+        "layout": "transform",
         "card_faces": [
             {
                 "object": "card_face",
