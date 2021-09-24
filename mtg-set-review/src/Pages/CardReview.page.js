@@ -1,29 +1,56 @@
 import React from "react";
-
+import CardRating from "../Components/card-rating/card-rating";
+import BoxLoader from "../Components/misc/box-loader.comp";
 
 export default class CardReviewPage extends React.Component {
     state = {
-        Id: 0
+        Id: 0,
+        Cards: []
     };
 
     constructor(props) {
         super(props);
-        console.log(props);
-        console.log(props.sessionId);
 
-        this.setState({ Id: 0 });
+        this.state = {
+            Id: props.sessionId,
+            Cards: []
+        };
     }
 
     componentDidMount() {
-        console.log(this.props);
+        let queryString = "q=set:MID";
+        let sessionId = 0;
         if(this.props && this.props.match.params) {
-            this.setState({ Id: this.props.match.params.sessionId });
+            sessionId = this.props.match.params.sessionId;
         }
+
+        fetch("https://api.scryfall.com/cards/search?" + queryString)
+        .then(response => response.json())
+        .then((data) => {
+            let cards = [];
+            if(data.data && data.data.length > 0) {
+                cards = data.data;
+            }
+
+            this.setState({
+                Id: sessionId,
+                Cards: cards
+            });
+        });
     }
 
     render() {
-        return (
-            <div><h1>{ this.state.Id }</h1></div>
-        );
+        if(this.state.Cards == null || this.state.Cards.length == 0) {
+            return <BoxLoader/>;
+        }
+        else {
+            return (
+                <>
+                    <div className="flex v-center h-center f-col">
+                        <CardRating cards={this.state.Cards}/>
+                    </div>
+                </>
+            );
+        }
     }
 }

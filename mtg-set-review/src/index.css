@@ -1,10 +1,13 @@
+html {
+  --primary-color: #db7329;
+}
 
 body {
   margin: 0;
   font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #db7329;
+  background-color: var(--primary-color);
 }
 
 code {

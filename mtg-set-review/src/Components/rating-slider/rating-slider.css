@@ -31,11 +31,11 @@
 }
 
 .rating li:hover {
-    background-color: #db7329;
+    background-color: var(--primary-color);
     color: white;
 }
 .rating li.selected {
-    border: 2px solid #db7329;
+    border: 2px solid var(--primary-color);
 }
 
 .slider {
@@ -48,9 +48,10 @@
 
 
     --box-shadow: 0px 0px 8px #000;
-    --slide-background: #db7329;
+    --slide-background: var(--primary-color);
     --thumb-width: 2em;
     --thumb-height: 2em;
+    --thumb-color: white;
     --border: 0px;
     --border-radius: 50%;
     --track-border-radius: 10px;
@@ -79,7 +80,7 @@
 
     border: var(--border);
     border-radius: var(--border-radius);
-    background: #ffffff;
+    background: var(--thumb-color);
     cursor: pointer;
     box-shadow: var(--box-shadow);
 }
@@ -92,7 +93,7 @@
     margin-top: calc(((-2em)/4) - 2px);
     border: var(--border);
     border-radius: var(--border-radius);
-    background: #ffffff;
+    background: var(--thumb-color);
     cursor: pointer;
 }
 
@@ -105,7 +106,7 @@
     
     border: var(--border);
     border-radius: var(--border-radius);
-    background: #ffffff;
+    background: var(--thumb-color);
     cursor: pointer;
 }
 

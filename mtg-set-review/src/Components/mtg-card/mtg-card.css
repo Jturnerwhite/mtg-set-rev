@@ -63,7 +63,7 @@
     height: 30px;
 
     background-color: white;
-    border: 3px solid #db7329;
+    border: 3px solid var(--primary-color);
     border-radius: 50%;
 
     cursor: pointer;
