@@ -18,13 +18,13 @@ export default class CardReviewPage extends React.Component {
     }
 
     componentDidMount() {
-        let queryString = "q=set:MID";
+        let queryString = "?q=set:MID&unique=cards&order=color";
         let sessionId = 0;
         if(this.props && this.props.match.params) {
             sessionId = this.props.match.params.sessionId;
         }
 
-        fetch("https://api.scryfall.com/cards/search?" + queryString)
+        fetch("https://api.scryfall.com/cards/search" + queryString)
         .then(response => response.json())
         .then((data) => {
             let cards = [];

@@ -9,29 +9,14 @@ function MtgCard(props) {
     console.log(props.card.name);
 
     let frontUrl = "";
-
     let backsideDisplay = "";
     let toggleButton = "";
     let topLevelClasses = "mtg-card";
-    /////// demo stuff------------------------------
-    if(!props.card.id) {
-        frontUrl = props.card.frontUrl;
-        if(props.card.backUrl) {
-            backsideDisplay = <img className="card-image" src={props.card.backUrl}/>;
-            let buttonClass = "flip-toggle" + (flipStatus ? " flipped" : "");
-            toggleButton = <span className={buttonClass} onClick={() => flip((flipStatus) ? 0 : 1)}><FontAwesomeIcon icon="retweet"/></span>;
-        }
-
-        if(flipStatus) {
-            topLevelClasses += " show-back";
-        }
-    }
-    ////// ----------------------------------------
 
     if(props.card.card_faces) {
         frontUrl = props.card.card_faces[0].image_uris.normal;
         
-        backsideDisplay = <img className="card-image" src={props.card.card_faces[1].image_uris.normall}/>;
+        backsideDisplay = <img className="card-image" src={props.card.card_faces[1].image_uris.normal}/>;
         let buttonClass = "flip-toggle" + (flipStatus ? " flipped" : "");
         toggleButton = <span className={buttonClass} onClick={() => flip((flipStatus) ? 0 : 1)}><FontAwesomeIcon icon="retweet"/></span>;
     }
