@@ -13,7 +13,7 @@ function MtgCard(props) {
     let toggleButton = "";
     let topLevelClasses = "mtg-card";
 
-    if(props.card.card_faces) {
+    if(props.card.layout === "transform") {
         frontUrl = props.card.card_faces[0].image_uris.normal;
         
         backsideDisplay = <img className="card-image" src={props.card.card_faces[1].image_uris.normal}/>;

@@ -5,7 +5,7 @@ function Finalize(props) {
         <>
             <h1 className="text-center">Finalize</h1>
             <div className="finalize-form">
-                <button>Start</button>
+                <button onClick={() => { props.onFinalize(); }}>Start</button>
             </div>
         </>
     );

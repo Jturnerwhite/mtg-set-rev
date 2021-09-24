@@ -11,7 +11,8 @@ import { faCheckSquare, faArrowRight, faArrowLeft, faSpinner, faRetweet } from '
 
 import LandingPage from "./Pages/Landing.page";
 import CardReviewPage from "./Pages/CardReview.page";
-import StartPage from "./Pages/SessionPages/Start.page";
+import SetupPage from "./Pages/SessionPages/Setup.page";
+import SelectPage from "./Pages/SessionPages/Select.page";
 import SandboxPage from "./Pages/SandboxPage";
 
 import './App.css';
@@ -21,14 +22,17 @@ library.add(fab, faCheckSquare, faArrowRight, faArrowLeft, faSpinner, faRetweet)
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/review/:sessionId" component={CardReviewPage} />
-        <Route path="/session/start" component={StartPage}/>
-        <Route path="/sandbox" component={SandboxPage}/>
-        <Route path="/" component={LandingPage}/>
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/review/:sessionId" component={CardReviewPage} />
+          <Route path="/session/start" component={SetupPage}/>
+          <Route path="/session/select" component={SelectPage}/>
+          <Route path="/sandbox" component={SandboxPage}/>
+          <Route path="/" component={LandingPage}/>
+        </Switch>
+      </Router>
+    </>
   );
 }
 

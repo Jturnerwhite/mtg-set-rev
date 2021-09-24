@@ -26,7 +26,6 @@ function SetList(props) {
 function SetDisplay(props) {
     let { set, clickEvent } = props;
     let onClick = useCallback(() => {
-        console.log("functional click");
         clickEvent(set);
     }, [clickEvent]);// eslint-disable-line react-hooks/exhaustive-deps
 
