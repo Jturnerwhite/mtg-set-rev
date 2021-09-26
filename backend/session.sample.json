@@ -1,0 +1,26 @@
+{
+    "_id": "",
+    "Set": "MID",
+    "Privacy": 0,
+    "Cards": [
+        {
+            "id": "e9d5aee0-5963-41db-a22b-cfea40a967a3 (scryfall UUID)",
+            "ratings": [
+                {
+                    "user": "user UUID",
+                    "value": "4.5",
+                    "notes": "This card is great"
+                },
+                {
+                    "user": "otherUser UUID",
+                    "value": "4.5",
+                    "notes": "This card is bunk"
+                }
+            ]
+        }
+    ],
+    "Contributors": [
+        "user UUID",
+        "otherUser UUID"
+    ]
+}

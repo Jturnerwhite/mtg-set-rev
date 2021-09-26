@@ -12,6 +12,7 @@ app.use(function(req, res, next) {
 });
 
 let sessionService = new SessionService();
+sessionService.Init().catch(e => { console.log(e); });
 
 app.get('/api/session/', (req, res) => {
     console.log("Get Sessions");
