@@ -2,10 +2,20 @@ import React from "react";
 import SessionService from "../Services/Session.service";
 
 export default class LandingPage extends React.Component {
-    render() {
+    sessionCount = 0;
+
+    componentDidMount() {
         let sessionService = new SessionService();
+        sessionService.GetSessions().then((sessions) => {
+            if(sessions != null) {
+                this.sessionCount = sessions.length ? sessions.length : 0;
+            }
+        });
+    }
+
+    render() {
         let conditionalDisplayElements;
-        if(sessionService.GetAll().length > 0) {
+        if(this.sessionCount > 0) {
             conditionalDisplayElements = <a href="/session/select">Select Session</a>;
         }
 

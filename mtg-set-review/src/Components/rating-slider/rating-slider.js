@@ -6,37 +6,48 @@ import "./rating-slider.css";
 function RatingSlider(props) {
     let values = [
         {
-            display: "0"
+            display: "0",
+            desc: "Unplayable."
         },
         {
-            display: "0.5"
+            display: "0.5",
+            desc: "Unplayable."
         },
         {
-            display: "1"
+            display: "1",
+            desc: "Unplayable."
         },
         {
-            display: "1.5"
+            display: "1.5",
+            desc: "Unplayable."
         },
         {
-            display: "2"
+            display: "2",
+            desc: "Unplayable."
         },
         {
-            display: "2.5"
+            display: "2.5",
+            desc: "Unplayable."
         },
         {
-            display: "3"
+            display: "3",
+            desc: "Unplayable."
         },
         {
-            display: "3.5"
+            display: "3.5",
+            desc: "Unplayable."
         },
         {
-            display: "4"
+            display: "4",
+            desc: "Unplayable."
         },
         {
-            display: "4.5"
+            display: "4.5",
+            desc: "Unplayable."
         },
         {
-            display: "5"
+            display: "5",
+            desc: "Unplayable."
         },
     ];
 
@@ -61,12 +72,15 @@ function RatingSlider(props) {
     });
 
     return (
-        <div className="slider-container">
-            <input className="slider" type="range" min="0" max={values.length-1} value={sliderValue} onChange={handleChange} />
-            <ul className="rating">
-                {quickSelectDisplay}
-            </ul>
-        </div>
+        <>
+            <h2>Stuff</h2>
+            <div className="slider-container">
+                <input className="slider" type="range" min="0" max={values.length-1} value={sliderValue} onChange={handleChange} />
+                <ul className="rating">
+                    {quickSelectDisplay}
+                </ul>
+            </div>
+        </>
     );
 }
 

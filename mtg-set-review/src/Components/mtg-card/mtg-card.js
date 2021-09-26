@@ -16,6 +16,7 @@ function MtgCard(props) {
     console.log(props.card);
     if(props.card.layout === "transform") {
         frontUrl = props.card.card_faces[0].image_uris.normal;
+        topLevelClasses += (flipStatus) ? " show-back" : "";
         
         backsideDisplay = <img className="card-image" src={props.card.card_faces[1].image_uris.normal}/>;
         let buttonClass = "flip-toggle" + (flipStatus ? " flipped" : "");

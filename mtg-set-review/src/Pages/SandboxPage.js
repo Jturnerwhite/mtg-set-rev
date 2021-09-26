@@ -1,7 +1,15 @@
 import React from "react";
 import CardRating from "../Components/card-rating/card-rating";
+import SessionService from "../Services/Session.service";
 
 export default class SandboxPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+    }
+
     render() {
         let cards = testData;
         return (

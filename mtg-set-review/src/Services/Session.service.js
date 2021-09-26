@@ -1,31 +1,47 @@
 
 export default class SessionService {
+    Endpoint = "/api/session/";
     LocalStorgeKey = "mtgr-sessions";
     SessionCache = null;
 
     constructor() {
-        this.SessionCache = this.GetSessions();
     }
 
     CreateSession = function(set, privacy) {
         let newSession = {
-            id: this.SessionCache.length,
             set: set,
             privacy: privacy,
             created: new Date().toDateString()
         };
 
-        this.SessionCache[newSession.id] = newSession;
-        this.UpdateLocalStorage();
+        //this.SessionCache[newSession.id] = newSession;
+        //this.UpdateLocalStorage();
+        this.UpdateServer(newSession).then((data) => {
+            console.log(data);
+        });
     };
 
     SetSession = function(session) {
         this.SessionCache[session.id] = session;
-        this.UpdateLocalStorage();
+        //this.UpdateLocalStorage();
     };
 
     UpdateLocalStorage = function() {
         window.localStorage.setItem(this.LocalStorgeKey, JSON.stringify(this.SessionCache));
+    }
+
+    UpdateServer = function(sessionToSave) {
+        return fetch(this.Endpoint, {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(sessionToSave)
+        })
+        .then(response => response.json())
+        .then((data) => {
+            console.log(data);
+        });
     }
 
     Get = function(id) {
@@ -43,9 +59,10 @@ export default class SessionService {
     }
 
     GetSessions = function() {
+        const getFromLocal = false;
         let storageEntry = window.localStorage.getItem(this.LocalStorgeKey);
 
-        if(storageEntry) {
+        if(getFromLocal) {
             try {
                 let sessions = JSON.parse(storageEntry);
 
@@ -54,12 +71,21 @@ export default class SessionService {
                 }
             }
             catch(e) {
-                return [];
+                window.localStorage.setItem(this.LocalStorgeKey, JSON.stringify([]));
             }
         } else {
-            window.localStorage.setItem(this.LocalStorgeKey, JSON.stringify([]));
+            return fetch(this.Endpoint) //fetch all
+            .then(response => response.json())
+            .then((data) => {
+                let sessions = [];
+                if(data && data.length > 0) {
+                    sessions = data;
+                }
+                
+                window.localStorage.setItem(this.LocalStorgeKey, JSON.stringify([]));
+                this.SessionCache = sessions;
+                return data;
+            });
         }
-
-        return [];
     }
 }
