@@ -73,7 +73,6 @@ function RatingSlider(props) {
 
     return (
         <>
-            <h2>Stuff</h2>
             <div className="slider-container">
                 <input className="slider" type="range" min="0" max={values.length-1} value={sliderValue} onChange={handleChange} />
                 <ul className="rating">

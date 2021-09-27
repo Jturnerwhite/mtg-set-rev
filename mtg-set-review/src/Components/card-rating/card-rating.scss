@@ -1,0 +1,128 @@
+.card-rating-container {
+    width: 30rem;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+
+    .card-container {
+        width: 100%;
+
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     display: block;
+        //     top: 0px;
+        //     left: 0px;
+        //     width: 100%;
+        //     height: 100%;
+        //     background: linear-gradient(90deg, #db7329 25%, rgba(219,115,41,0) 50%, #db7329 75%);
+        // }
+    
+        .focused-card {
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+
+            .mtg-card {
+                z-index: 1;
+            }
+        }
+        
+        .background-card {
+            z-index: 0;
+            position:relative;
+            width: 100%;
+
+            .mtg-card-container {
+                position: absolute;
+                top: 100px;
+                width: 235px;
+
+                &:first-child::after, &:last-child::after {
+                    content: '';
+                    position:absolute;
+                    top: 0px;
+                    left: 0px;
+                
+                    display:block;
+                    width: 100%;
+                    height: 100%;
+                    background: #db7329;
+                    opacity: 0.75;
+                }
+
+                &:first-child {
+                    left: -50px;
+                }
+                &:last-child {
+                    right: -50px;
+                }
+            }
+        }
+    }
+    
+    .mtg-card-container {
+        height: 468px;
+        width: 336px;
+    }
+    
+    .ui-card {
+        position: relative;
+        width: 100%;
+    
+        margin-top: -80px;
+        padding: 15px;
+    
+        border-radius: 20px;
+    }
+    
+    .rating-container {
+        padding: 120px 0px 0px 0px;
+        width: 100%;
+    }
+    .float-control {
+        position: absolute;
+        top: 10px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+    
+        background-color: white;
+        border: 2px solid grey;
+        border-radius: 50%;
+    
+        cursor: pointer;
+
+        &:hover {
+            color: white;
+            background-color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+    
+        &.top-left {
+            left: 10px;
+        }
+        
+        &.top-right {
+            right: 10px;
+        }
+        
+        &.lower-middle {
+            z-index: 2;
+            left: calc(50% - 18px);
+            top: 62px;
+            
+            border: 3px solid var(--primary-color);
+        }
+        
+    }
+
+    .additional-controls {
+        margin-top: 20px;
+        padding: 0px 5px;
+    }
+}
+
